@@ -25,7 +25,6 @@ public class TimeEntryController {
     @GetMapping("{id}")
     public ResponseEntity<TimeEntry> read(@PathVariable long id) {
         var timeEntryFound = timeEntriesRepo.find(id);
-
         return timeEntryFound == null ?
                 notFound().build() :
                 ok(timeEntryFound);
@@ -48,7 +47,6 @@ public class TimeEntryController {
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable long id) {
         timeEntriesRepo.delete(id);
-
         return noContent().build();
     }
 }
